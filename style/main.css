@@ -5,12 +5,30 @@
   box-sizing: border-box;
 }
 
-html, body {
+html {
   height: 100%;
   /* Предотвращаем масштабирование на мобильных устройствах */
   touch-action: manipulation;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  /* Темный фон для избежания белых полос на iOS */
+  background-color: #1b0a2f;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  /* Глубокий "подводный" фиолетовый: слева темнее, справа светлее */
+  background: radial-gradient(900px 600px at 80% 20%, rgba(154, 122, 255, 0.22) 0%, rgba(20, 8, 44, 0) 60%),
+              linear-gradient(90deg, #1b0a2f 0%, #241047 35%, #2f1360 70%, #3b1776 100%);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background-attachment: fixed;
+  /* Принудительная стабилизация */
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
 }
 
 :root {
@@ -26,19 +44,6 @@ html, body {
   --button-grad-hover-end: #4c1f96;
   --button-shadow: 0 12px 26px rgba(123, 77, 255, 0.35), 0 0 0 1px rgba(123, 77, 255, 0.2) inset;
   --button-shadow-hover: 0 16px 34px rgba(76, 31, 150, 0.45);
-}
-
-body {
-  /* Глубокий "подводный" фиолетовый: слева темнее, справа светлее */
-  background: radial-gradient(900px 600px at 80% 20%, rgba(154, 122, 255, 0.22) 0%, rgba(20, 8, 44, 0) 60%),
-              linear-gradient(90deg, #1b0a2f 0%, #241047 35%, #2f1360 70%, #3b1776 100%);
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  color: var(--ink);
-  background-attachment: fixed;
-  /* Принудительная стабилизация */
-  overflow-x: hidden;
-  position: relative;
 }
 
 .container {
@@ -60,7 +65,7 @@ body {
   background: transparent;
   /* Убираем белую границу снизу */
   border-bottom: none;
-  padding: 12px 0;
+  padding: 0;
   /* Принудительная аппаратная стабилизация */
   will-change: transform;
   transform: translate3d(0, 0, 0);
@@ -75,7 +80,7 @@ body {
   min-height: 52px;
   width: 92%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 12px auto;
   padding: 10px 22px;
   background: rgba(9, 6, 24, 0.75);
   backdrop-filter: blur(18px) saturate(1.15);
@@ -291,7 +296,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 0px;
   padding: 40px 0;
 }
 .hero-content {
@@ -1451,24 +1456,30 @@ body {
     right: 0;
     width: 100%;
     z-index: 999;
-    padding: 12px 0;
-    background: rgba(9, 6, 24, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     /* Принудительная стабилизация */
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
   }
   
   .header-container {
-    min-height: 45px;
-    padding: 0 15px;
+    min-height: 56px;
+    padding: 12px 15px;
     /* Гарантируем правильное распределение элементов */
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     max-width: none;
+    margin: 0;
+    border-radius: 0 0 20px 20px;
+    background: rgba(9, 6, 24, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
   
   .logo {
@@ -1511,7 +1522,7 @@ body {
 
   /* Исправляем отступ героя от хедера */
   .hero {
-    margin-top: 80px; /* Увеличиваем отступ для мобильной версии */
+    margin-top: 56px; /* Минимальный отступ для мобильной версии */
     min-height: 70vh; /* Немного уменьшаем высоту на мобильных */
   }
 
@@ -2415,7 +2426,7 @@ body {
 
 /* Исправляем отступ героя от хедера */
 .hero {
-  margin-top: 80px; /* Увеличиваем отступ для мобильной версии */
+  margin-top: 0px; /* Увеличиваем отступ для мобильной версии */
   min-height: 70vh; /* Немного уменьшаем высоту на мобильных */
   }
 
@@ -4102,4 +4113,22 @@ body {
     color: #f1eeff !important;
   }
 }
+
+/* iOS Safe Area Support - только для устройств с вырезами (iPhone X+) */
+@supports (padding: env(safe-area-inset-top)) {
+  @media (max-width: 768px) {
+    body {
+      padding-top: env(safe-area-inset-top) !important;
+    }
+    
+    .site-header {
+      top: env(safe-area-inset-top) !important;
+    }
+    
+    .site-footer {
+      padding-bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+    }
+  }
+}
+
 
