@@ -1,0 +1,617 @@
+<html lang="sk">
+<head>  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Archetype Strategy — Digitálna agentúra</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/placeholder0.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/placeholder0.png">
+  <link rel="shortcut icon" href="assets/images/placeholder0.png">
+  <link rel="apple-touch-icon" href="assets/images/placeholder0.png">
+
+  <!-- Подключаем шрифт Montserrat -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" 
+    rel="stylesheet"
+  />
+
+  <!-- Подключаем AOS (Animate On Scroll) -->  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="stylesheet" href="style/cart.css" />
+</head>
+<body>
+
+  <!-- Хедер -->
+  <header class="site-header" data-aos="fade-down">
+    <div class="container header-container">
+      <h1 class="logo">Archetype Strategy</h1>
+
+      <!-- Контейнер для мобильных кнопок -->
+      <div class="header-right">        <!-- Мобильная кнопка смены языка -->
+        <button id="lang-toggle-mobile" class="lang-btn-mobile">EN</button>
+        <!-- Иконка корзины -->
+        <button id="cart-toggle" class="cart-btn" aria-label="Otvoriť košík">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <!-- Кнопка-гамбургер, видна на мобильных -->
+        <button id="menu-toggle" aria-label="Otvoriť menu">☰</button>
+      </div>      <nav class="nav">        <a href="#about" data-lang-key="nav_about">O nás</a>
+        <a href="#featured" data-lang-key="nav_advantages">Výhody</a>
+        <a href="#packages" data-lang-key="nav_packages">Balíčky služieb</a>
+        <a href="#package-builder" data-lang-key="nav_package_builder">Vytvoriť balíček</a>
+        <a href="#contact" data-lang-key="nav_contacts">Kontakty</a>
+         <!-- Иконка корзины для десктопа -->
+        <button id="cart-toggle-desktop" class="cart-btn desktop-cart" aria-label="Otvoriť košík">
+          🛒
+          <span class="cart-count" id="cartCountDesktop">0</span>
+        </button>
+        <!-- Language Switcher Button для десктопа -->
+        <button id="lang-toggle" class="lang-btn">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Герой-секция -->
+  <section class="hero" data-aos="fade-up">
+    <div class="container hero-content">
+      <div class="hero-text">        <h2 data-lang-key="hero_title">Kompletný cyklus digitálneho marketingu</h2>
+        <p class="hero-subtitle" data-lang-key="hero_subtitle">
+          Rozvíjame značky, zvyšujeme zisky a rozširujeme váš biznis na internete.
+        </p>
+        <a href="#contact" class="btn btn-gradient" data-lang-key="hero_cta">Podať žiadosť</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section id="featured" class="section featured" data-aos="fade-up">
+    <div class="container featured-container">
+      <div class="featured-text">        <h3 data-lang-key="featured_title">Naše výhody</h3>
+        <p data-lang-key="featured_desc">
+          Používame moderné nástroje a individuálny prístup na vyzdvihnutie vašej značky na trhu.
+        </p>
+      </div>      <div class="featured-images">        <div class="photo-block">
+          <img src="assets/images/placeholder1.png" alt="Analytika a dáta">
+        </div>
+        <div class="photo-block">
+          <img src="assets/images/placeholder3.png" alt="Náš tím expertov">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О нас -->
+  <section id="about" class="section about" data-aos="fade-up">
+    <div class="container glass-panel">      <h3 data-lang-key="about_title">O nás</h3>
+      <p data-lang-key="about_text">
+        Sme moderná agentúra, ktorá pomáha firmám rásť. Náš tím expertov v digitálnom marketingu, dizajne a webovom vývoji analyzuje trh a ponúka optimálne riešenia pre váš úspech.
+      </p>
+      <div class="about-highlights">        <div class="highlight">
+          <h4 data-lang-key="about_highlight1_title">Prístup 360°</h4>
+          <p data-lang-key="about_highlight1_text">Všetky kanály propagácie: SEO, kontext, SMM, email a mnoho ďalšieho.</p>
+        </div>
+        <div class="highlight">
+          <h4 data-lang-key="about_highlight2_title">Moderné nástroje</h4>
+          <p data-lang-key="about_highlight2_text">Používame overené služby analýzy a automatizácie.</p>
+        </div>        <div class="highlight">
+          <h4 data-lang-key="about_highlight3_title">Transparentné reportovanie</h4>
+          <p data-lang-key="about_highlight3_text">Jasné reporty, aby ste vždy videli výsledky.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Пакеты услуг -->
+<section id="packages" class="section packages" data-aos="fade-up">
+  <div class="container glass-panel">
+    <h3 data-lang-key="packages_title">Balíčky služieb</h3>
+    <div class="packages-grid">      <!-- Базовый (Starter) пакет - первая карточка -->
+      <div class="package-card first-card" data-package="starter">        <h4 data-lang-key="starter_package">Štartovací balíček</h4>
+        <p><strong data-lang-key="for_who">Pre koho:</strong> <span data-lang-key="starter_for_who_text">Malé a stredné podniky, ktoré začínajú s digitálnym marketingom.</span></p>
+        <p><strong data-lang-key="services_included">Služby zahrnuté v balíčku:</strong></p>        <ul data-lang-key="starter_services">
+          <li>Nastavenie a vedenie reklamy v jednom kanáli (Google Ads alebo Facebook/Instagram)</li>
+          <li>– až 4 objekty (text+grafika)</li>
+          <li>– základný targeting (2–3 publiká)</li>
+          <li>– optimalizácia 1 raz za týždeň</li>
+          <li>Vedenie jednej sociálnej siete (Facebook alebo Instagram)</li>
+          <li>– 2 publikácie za týždeň (8 postov/mes)</li>
+          <li>– základné úpravy profilu</li>
+          <li>Integrácia Google Analytics + Tag Manager</li>
+          <li>Mesačný report kľúčových metrík</li>
+          <li>Do 3 úprav kampaní/kreatívov</li>
+          <li>E-mail a messenger podpora</li>        </ul>
+        <p><strong data-lang-key="price">Cena:</strong> <span data-lang-key="starter_price">579 eur/mesiac</span></p>
+        <button class="package-btn" data-package="starter" data-price="579" data-lang-key="add_package_to_cart">Pridať balíček do košíka</button>
+      </div><!-- Средний (Growth) пакет -->
+      <div class="package-card" data-package="growth">        <h4 data-lang-key="growth_package">Stredný (Growth) balíček</h4>
+        <p><strong data-lang-key="for_who">Pre koho:</strong> <span data-lang-key="growth_for_who_text">Malý a stredný biznis, ktorý chce simultánne rozvíjať značku a testovať rôzne kanály.</span></p>        <p><strong data-lang-key="services_included">Služby zahrnuté v balíčku:</strong></p>        <ul>
+          <li data-lang-key="growth_service_1">Reklama v dvoch kanáloch (Google Ads + Facebook/Instagram)</li>
+          <li data-lang-key="growth_service_2">– až 6 objektov (text + grafika)</li>
+          <li data-lang-key="growth_service_3">– základný + lookalike targeting</li>
+          <li data-lang-key="growth_service_4">– optimalizácia 2x týždenne</li>
+          <li data-lang-key="growth_service_5">SMM v dvoch sociálnych sieťach (Facebook a Instagram)</li>
+          <li data-lang-key="growth_service_6">– po 3 publikácie týždenne (≈12 postov/mes)</li>
+          <li data-lang-key="growth_service_7">– až 6 stories/mesiac</li>
+          <li data-lang-key="growth_service_8">– úprava profilu, hashtags</li>
+          <li data-lang-key="growth_service_9">On-page SEO (až 8 kľúčových dopytov)</li>
+          <li data-lang-key="growth_service_10">– meta-tagy, štruktúra, základné prepojenia</li>
+          <li data-lang-key="growth_service_11">E-mail marketing</li>
+          <li data-lang-key="growth_service_12">– 2 rozosielky/mes, welcome-sekvencia</li>
+          <li data-lang-key="growth_service_13">Integrácia a tracking</li>
+          <li data-lang-key="growth_service_14">– Google Analytics, Tag Manager</li>
+          <li data-lang-key="growth_service_15">Mesačný report s odporúčaniami</li>
+          <li data-lang-key="growth_service_16">Až 5 úprav textov/kreatívov</li>
+          <li data-lang-key="growth_service_17">E-mail a messenger podpora</li>        </ul>
+        <p><strong data-lang-key="price">Cena:</strong> <span data-lang-key="growth_price">789 eur/mesiac</span></p>
+        <button class="package-btn" data-package="growth" data-price="789" data-lang-key="add_package_to_cart">Pridať balíček do košíka</button>
+      </div>      <!-- Премиум (Scale) пакет -->
+      <div class="package-card" data-package="scale">        <h4 data-lang-key="scale_package">Prémiový (Scale) balíček</h4>
+        <p><strong data-lang-key="for_who">Pre koho:</strong> <span data-lang-key="scale_for_who_text">Spoločnosti s obratom 50–100 tis. eur/mes, ktoré sa snažia o agresívny rast a vstup na nové trhy.</span></p>
+        <p><strong data-lang-key="services_included">Služby zahrnuté v balíčku:</strong></p>        <ul>
+          <li data-lang-key="scale_service_1">Multikanálová reklama (Google Ads + Facebook/Instagram)</li>
+          <li data-lang-key="scale_service_2">– až 10 bannerov, 2 videá</li>
+          <li data-lang-key="scale_service_3">– A/B-testy kreatívov a publík</li>
+          <li data-lang-key="scale_service_4">– optimalizácia kampaní 2x týždenne</li>
+          <li data-lang-key="scale_service_5">– lokalizácia pre slovenský trh</li>
+          <li data-lang-key="scale_service_6">SMM v dvoch sieťach (Facebook + Instagram)</li>
+          <li data-lang-key="scale_service_7">– 14 publikácií/mes (na oba kanály)</li>
+          <li data-lang-key="scale_service_8">– až 8 stories/Reels</li>
+          <li data-lang-key="scale_service_9">– moderácia komentárov, úprava profilu</li>
+          <li data-lang-key="scale_service_10">On-page SEO (až 12 kľúčov)</li>
+          <li data-lang-key="scale_service_11">– meta-tagy, štruktúra, základná mikroštrukturácia</li>
+          <li data-lang-key="scale_service_12">E-mail marketing</li>
+          <li data-lang-key="scale_service_13">– 3 rozosielky/mes</li>
+          <li data-lang-key="scale_service_14">– 2 automatické sekvencie (welcome, reaktivácia)</li>
+          <li data-lang-key="scale_service_15">Komplexná analytika</li>
+          <li data-lang-key="scale_service_16">– nastavenie GA4, GTM, Facebook Pixel, základný calltracking</li>
+          <li data-lang-key="scale_service_17">– kontrola UTM-značiek a cieľov</li>
+          <li data-lang-key="scale_service_18">Reportovanie a podpora</li>
+          <li data-lang-key="scale_service_19">– mesačný report</li>
+          <li data-lang-key="scale_service_20">– až 8 úprav kreatívov a nastavení</li>
+          <li data-lang-key="scale_service_21">– e-mail a messenger podpora</li>        </ul>        <p><strong data-lang-key="price">Cena:</strong> <span data-lang-key="scale_price">999 eur/mesiac</span></p>
+        <button class="package-btn" data-package="scale" data-price="999" data-lang-key="add_package_to_cart">Pridať balíček do košíka</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Package Builder -->
+<section id="package-builder" class="section package-builder" data-aos="fade-up">
+  <div class="container glass-panel">
+    <h3 data-lang-key="builder_title">Vytvorte si vlastný balíček</h3>
+    <p data-lang-key="builder_subtitle" class="builder-subtitle">Vyberte si služby, ktoré potrebujete, a vytvorte si balíček na mieru</p>
+    
+    <div class="builder-container">
+      <!-- Selected Services Panel (Left) -->
+      <div class="selected-services">
+        <h4 data-lang-key="selected_services_title">Vybrané služby</h4>
+        <div class="selected-list" id="selectedList">
+          <div class="empty-state" data-lang-key="empty_state">
+            Zatiaľ ste nevybrali žiadne služby. Kliknite na "+" vedľa služby, ktorú chcete pridať.
+          </div>
+        </div>
+        <div class="total-price">
+          <span data-lang-key="total_price">Celková cena:</span>
+          <span class="price-amount" id="totalPrice">0 €</span>
+        </div>
+        <button class="cta-button" id="addToCartBtn" data-lang-key="add_to_cart">Pridať do košíka</button>
+      </div>
+      
+      <!-- Available Services Panel (Right) -->
+      <div class="available-services">
+        <h4 data-lang-key="available_services_title">Dostupné služby</h4>        <div class="services-list">
+          <!-- Контекстная реклама Google Ads -->          <div class="builder-service" data-service="google_ads" data-price="250">
+            <div class="service-info">              <h5 data-lang-key="service_google_ads">Kontextová reklama (Google Ads)</h5>
+              <p data-lang-key="service_google_ads_desc">Spustenie, vedenie a optimalizácia platenej reklamy vo vyhľadávačoch Google.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €250</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Таргетированная реклама Facebook/Instagram -->
+          <div class="builder-service" data-service="facebook_ads" data-price="250">
+            <div class="service-info">
+              <h5 data-lang-key="service_facebook_ads">Cielenou reklama (Facebook, Instagram)</h5>
+              <p data-lang-key="service_facebook_ads_desc">Nastavenie a správa reklamy v sociálnych sieťach podľa cieľových skupín.</p>
+            </div>            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €250</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- SMM ведение соцсетей -->
+          <div class="builder-service" data-service="smm_management" data-price="500">
+            <div class="service-info">
+              <h5 data-lang-key="service_smm_management">SMM (vedenie a propagácia sociálnych sietí)</h5>
+              <p data-lang-key="service_smm_management_desc">Vývoj obsahu, publikovanie, zapojenie publika a rast sledovateľov v sociálnych sieťach.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €500</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- SEO продвижение -->
+          <div class="builder-service" data-service="seo_promotion" data-price="375">
+            <div class="service-info">
+              <h5 data-lang-key="service_seo_promotion">SEO-propagácia webových stránok</h5>              <p data-lang-key="service_seo_promotion_desc">Zlepšenie pozícií stránky vo vyhľadávaní Google a prilákanie organickej návštevnosti.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €375</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- E-mail маркетинг -->          <div class="builder-service" data-service="email_marketing" data-price="150">
+            <div class="service-info">
+              <h5 data-lang-key="service_email_marketing">E-mail marketing</h5>              <p data-lang-key="service_email_marketing_desc">Tvorba a rozosielanie e-mailov, segmentácia databázy, automatizácia rozosielok.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €150</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Аналитика и отчетность -->
+          <div class="builder-service" data-service="analytics_reporting" data-price="100">
+            <div class="service-info">
+              <h5 data-lang-key="service_analytics_reporting">Analytika a reportovanie</h5>              <p data-lang-key="service_analytics_reporting_desc">Zber a analýza údajov, príprava pravidelných správ o účinnosti marketingu.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €100</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Создание лендингов -->
+          <div class="builder-service" data-service="landing_creation" data-price="500">
+            <div class="service-info">
+              <h5 data-lang-key="service_landing_creation">Tvorba a optimalizácia landingov/webov</h5>              <p data-lang-key="service_landing_creation_desc">Vývoj jednostránkových webov (landingy) a ich optimalizácia na konverzie. Cena je za jednostránkový.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €500</div>
+              <div class="price-period" data-lang-key="period_piece">kus</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Копирайтинг -->
+          <div class="builder-service" data-service="copywriting" data-price="200">
+            <div class="service-info">
+              <h5 data-lang-key="service_copywriting">Copywriting (príspevky, rozosielky, články)</h5>              <p data-lang-key="service_copywriting_desc">Písanie textov pre weby, sociálne siete, e-mail rozosielky a reklamu.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €200</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Графический дизайн -->          <div class="builder-service" data-service="graphic_design" data-price="150">
+            <div class="service-info">
+              <h5 data-lang-key="service_graphic_design">Grafický dizajn (bannery, kreatívy)</h5>              <p data-lang-key="service_graphic_design_desc">Tvorba vizuálnych materiálov pre reklamu, sociálne siete a web.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €150</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- CRM настройка -->          <div class="builder-service" data-service="crm_setup" data-price="250">
+            <div class="service-info">
+              <h5 data-lang-key="service_crm_setup">Nastavenie CRM / automatizácia marketingu</h5>              <p data-lang-key="service_crm_setup_desc">Implementácia CRM systémov a automatizácia marketingových procesov.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €250</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Маркетинговые стратегии -->
+          <div class="builder-service" data-service="marketing_strategy" data-price="375">
+            <div class="service-info">
+              <h5 data-lang-key="service_marketing_strategy">Príprava a realizácia marketingových stratégií</h5>              <p data-lang-key="service_marketing_strategy_desc">Vývoj komplexnej stratégie propagácie produktu alebo služby.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €375</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- PR и инфлюенсеры -->
+          <div class="builder-service" data-service="pr_influencers" data-price="200">
+            <div class="service-info">
+              <h5 data-lang-key="service_pr_influencers">PR a práca s influencermi</h5>              <p data-lang-key="service_pr_influencers_desc">Organizácia publikácií v médiách a spolupráca s bloggermi, lídrami názoru.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €200</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Онлайн мероприятия -->
+          <div class="builder-service" data-service="online_events" data-price="300">
+            <div class="service-info">
+              <h5 data-lang-key="service_online_events">Organizácia a realizácia online podujatí</h5>
+              <p data-lang-key="service_online_events_desc">Vedenie webinárov, online prezentácií, akcií.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €300</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Видеопродакшн -->
+          <div class="builder-service" data-service="video_production" data-price="375">
+            <div class="service-info">
+              <h5 data-lang-key="service_video_production">Produkcia videa a motion dizajn</h5>
+              <p data-lang-key="service_video_production_desc">Tvorba videí a animovaného obsahu pre reklamu a sociálne siete.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €375</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Фотосъемка -->
+          <div class="builder-service" data-service="photography" data-price="250">
+            <div class="service-info">
+              <h5 data-lang-key="service_photography">Fotografovanie/obsah pre sociálne siete, katalógy</h5>              <p data-lang-key="service_photography_desc">Organizácia a realizácia fotografických sessionov pre obsah a reklamu.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €250</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Брендинг -->
+          <div class="builder-service" data-service="branding" data-price="450">
+            <div class="service-info">
+              <h5 data-lang-key="service_branding">Vývoj firemného štýlu/brandingu</h5>
+              <p data-lang-key="service_branding_desc">Tvorba loga, brandbooku a vizuálnej identity spoločnosti.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €450</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+          
+          <!-- Маркетинговый аудит -->          <div class="builder-service" data-service="marketing_audit" data-price="200">
+            <div class="service-info">
+              <h5 data-lang-key="service_marketing_audit">Marketingový audit/konzultácie</h5>
+              <p data-lang-key="service_marketing_audit_desc">Analýza súčasných marketingových procesov a odporúčania na zlepšenie.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €200</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Управление репутацией -->
+          <div class="builder-service" data-service="reputation_management" data-price="200">
+            <div class="service-info">
+              <h5 data-lang-key="service_reputation_management">Správa reputácie (ORM)</h5>
+              <p data-lang-key="service_reputation_management_desc">Monitorovanie spomenutí spoločnosti a práca s negatívom na internete.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €200</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Модерация отзывов -->
+          <div class="builder-service" data-service="review_moderation" data-price="150">
+            <div class="service-info">
+              <h5 data-lang-key="service_review_moderation">Monitorovanie a moderovanie recenzií</h5>
+              <p data-lang-key="service_review_moderation_desc">Sledovanie a spracovanie recenzií na platformách, operatívna reakcia.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €150</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Презентации -->
+          <div class="builder-service" data-service="presentations" data-price="150">
+            <div class="service-info">
+              <h5 data-lang-key="service_presentations">Príprava prezentácií, komerčných ponúk</h5>
+              <p data-lang-key="service_presentations_desc">Vývoj prezentácií pre stretnutia a predaj, príprava komerčných ponúk.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €150</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Чат-боты -->
+          <div class="builder-service" data-service="chatbots" data-price="250">
+            <div class="service-info">
+              <h5 data-lang-key="service_chatbots">Vybudovanie a nastavenie chat-botov pre biznis</h5>
+              <p data-lang-key="service_chatbots_desc">Tvorba a programovanie chat-botov pre automatizáciu komunikácie.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €250</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Telegram каналы -->
+          <div class="builder-service" data-service="telegram_channels" data-price="200">
+            <div class="service-info">
+              <h5 data-lang-key="service_telegram_channels">Tvorba a vedenie Telegram kanálov</h5>
+              <p data-lang-key="service_telegram_channels_desc">Vývoj obsahu a správa kanálu pre propagáciu značky v Telegrame.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €200</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Реклама в мессенджерах -->
+          <div class="builder-service" data-service="messenger_ads" data-price="150">
+            <div class="service-info">
+              <h5 data-lang-key="service_messenger_ads">Nastavenie a vedenie reklamy v messengeroch</h5>
+              <p data-lang-key="service_messenger_ads_desc">Spustenie cielenej reklamy v messengeroch (Telegram, WhatsApp a iné).</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €150</div>
+              <div class="price-period" data-lang-key="period_month">mesiac</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+            <!-- Акции и розыгрыши -->
+          <div class="builder-service" data-service="promotions" data-price="150">
+            <div class="service-info">
+              <h5 data-lang-key="service_promotions">Príprava a spustenie akcií/žrebovaní</h5>
+              <p data-lang-key="service_promotions_desc">Organizácia a realizácia promo akcií, súťaží, žrebovaní na prilákanie publika.</p>
+            </div>
+            <div class="service-price">
+              <div class="price-amount"><span data-lang-key="price_from">od</span> €150</div>
+              <div class="price-period" data-lang-key="period_project">projekt</div>
+            </div>
+            <button class="add-service-btn" data-action="add">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  <!-- Контакты --><section id="contact" class="section contact" data-aos="fade-up">
+    <div class="container contact-panel">
+      <h3 data-lang-key="contact_title">Kontakty</h3>
+      <p data-lang-key="contact_text">Kontaktujte nás: <a href="mailto:hello@marketing360.com">hello@marketing360.com</a></p>
+      <p data-lang-key="contact_ready">Sme pripravení prediskutovať váš projekt a pomôcť dosiahnuť nové výšky!</p>        <!-- Социальные сети -->
+      <div class="social-links">        <a href="https://t.me/Marketing360sk" target="_blank" class="social-link telegram">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 2.1 11.75c-1.21-.35-1.22-.85.26-1.39L21.26 3.94c1.01-.38 1.96.24 1.48 1.65L19.5 18.75c-.26 1.3-.98 1.61-1.99 1.01L13.55 17.4l-1.88 1.81c-.21.21-.39.39-.81.39z"/>
+          </svg>
+          <span data-lang-key="social_telegram">Telegram</span>
+        </a>
+        <a href="https://www.instagram.com/marketing360sk/" target="_blank" class="social-link instagram">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span data-lang-key="social_instagram">Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61577606097342" target="_blank" class="social-link facebook">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          <span data-lang-key="social_facebook">Facebook</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Футер -->
+  <footer class="site-footer" data-aos="fade-up">
+    <div class="container">
+      <p data-lang-key="footer_copyright">&copy; 2025 Archetype Strategy. Všetky práva vyhradené.</p>
+    </div>
+  </footer>
+<!-- Модальное окно корзины -->
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+      <div class="cart-header">
+        <h2 data-lang-key="cart_title">Košík</h2>
+        <button id="closeCartModal" class="close-btn" aria-label="Zavrieť">&times;</button>
+      </div>
+      
+      <div class="cart-body">
+        <div id="cartItems" class="cart-items">
+          <!-- Элементы корзины будут добавлены динамически -->
+        </div>
+        
+        <div id="emptyCartMessage" class="empty-cart-message">
+          <p data-lang-key="cart_empty">Váš košík je prázdny</p>
+        </div>
+        
+        <div class="cart-summary">
+          <div class="cart-total">
+            <span data-lang-key="cart_total">Celkom:</span>
+            <span id="cartTotal">0€</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cart-footer">
+        <button id="clearCart" class="btn-secondary" data-lang-key="cart_clear">Vymazať košík</button>
+        <button id="goToCart" class="btn-primary" data-lang-key="cart_view_full">Prejsť na košík</button>
+      </div>
+    </div>
+  </div>
+   <!-- Подключение AOS и скриптов -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>  <script>
+    console.log('AOS object:', AOS);
+    
+    // Add a small delay to ensure DOM is fully ready
+    setTimeout(() => {
+      console.log('Initializing AOS...');
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 50,
+        disable: false
+      });
+        // Force refresh AOS after a moment
+      setTimeout(() => {
+        console.log('Refreshing AOS...');
+        AOS.refresh();
+      }, 100);
+    }, 100);
+  </script>
+  
+  <!-- Веб-чат с интеграцией Telegram -->
+  <div id="chat-widget" class="chat-widget">
+    <div id="chat-toggle" class="chat-toggle">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+      </svg>
+      <span class="chat-notification" id="chat-notification">1</span>
+    </div>
+    
+    <div id="chat-window" class="chat-window">
+      <div class="chat-header">        <div class="chat-header-info">
+          <h4 data-lang-key="chat_title">Podporou chat</h4>
+          <span class="chat-status" id="chat-status">Online</span>
+        </div>
+        <button id="chat-close" class="chat-close-btn">×</button>
+      </div>      <div class="chat-messages" id="chat-messages">
+        <div class="chat-message bot-message">
+          <div class="message-content">
+            <p data-lang-key="chat_welcome">Dobrý deň! Som tu, aby som vám pomohol. Aké máte otázky?</p>
+          </div>
+          <div class="message-time">Teraz</div>
+        </div>
+      </div>
+      
+      <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Napíšte správu..." data-lang-key-placeholder="chat_input_placeholder">
+        <button id="chat-send" class="chat-send-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Конфигурация Telegram -->
+  <script src="config/telegram-config.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
+ 

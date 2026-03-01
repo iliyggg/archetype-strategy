@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Košík — Archetype Strategy</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/placeholder0.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/placeholder0.png">
+  <link rel="shortcut icon" href="assets/images/placeholder0.png">
+  <link rel="apple-touch-icon" href="assets/images/placeholder0.png">
+
+  <!-- Подключаем шрифт Montserrat -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" 
+    rel="stylesheet"
+  />
+
+  <!-- Подключаем AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />  <link rel="stylesheet" href="style/main.css" />
+  <link rel="stylesheet" href="style/cart.css" />
+</head>
+<body>
+
+  <!-- Хедер -->
+  <header class="site-header" data-aos="fade-down">
+    <div class="container header-container">
+      <h1 class="logo">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Archetype Strategy</a>
+      </h1>
+      
+      <!-- Контейнер для мобильных кнопок -->
+      <div class="header-right">
+        <!-- Мобильная кнопка смены языка -->
+        <button id="lang-toggle-mobile" class="lang-btn-mobile">EN</button>
+        
+        <!-- Иконка корзины -->
+        <button id="cart-toggle" class="cart-btn" aria-label="Otvoriť košík">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        
+        <!-- Кнопка-гамбургер, видна на мобильных -->
+        <button id="menu-toggle" aria-label="Otvoriť menu">☰</button>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html#about" data-lang-key="nav_about">O nás</a>
+        <a href="index.html#featured" data-lang-key="nav_advantages">Výhody</a>
+        <a href="index.html#packages" data-lang-key="nav_packages">Balíčky služieb</a>
+        <a href="index.html#package-builder" data-lang-key="nav_package_builder">Vytvoriť balíček</a>
+        <a href="index.html#contact" data-lang-key="nav_contacts">Kontakty</a>
+        
+        <!-- Иконка корзины для десктопа -->
+        <button id="cart-toggle-desktop" class="cart-btn desktop-cart" aria-label="Otvoriť košík">
+          🛒
+          <span class="cart-count" id="cartCountDesktop">0</span>
+        </button>
+        
+        <!-- Language Switcher Button для десктопа -->
+        <button id="lang-toggle" class="lang-btn">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Главная секция корзины -->
+  <main class="cart-page">
+    <div class="container">
+      <div class="cart-page-content">
+        <h1 class="cart-page-title" data-lang-key="cart_page_title">Košík</h1>
+        
+        <div class="cart-content-wrapper">
+          <!-- Левая колонка - элементы корзины -->
+          <div class="cart-items-section">
+            <div id="cartItemsList" class="cart-page-items">
+              <!-- Элементы корзины будут добавлены динамически -->
+            </div>
+            
+            <div id="emptyCartPageMessage" class="empty-cart-page-message">
+              <div class="empty-cart-icon">🛒</div>
+              <h3 data-lang-key="cart_empty_title">Váš košík je prázdny</h3>
+              <p data-lang-key="cart_empty_desc">Pridajte služby z nášho Package Builder-a alebo vyberte jeden z hotových balíčkov.</p>
+              <a href="index.html#package-builder" class="btn btn-gradient" data-lang-key="cart_browse_services">Prehliadnuť služby</a>
+            </div>
+          </div>
+            <!-- Правая колонка - суммарная информация -->
+          <div class="cart-summary-section">
+            <div class="cart-summary-card">
+              <h3 data-lang-key="cart_summary_title">Objednávka</h3>
+              
+              <!-- Discount Code Section -->
+              <div class="discount-section">
+                <div class="discount-input-group">
+                  <input type="text" id="discountCode" placeholder="Zadajte zľavový kód" class="discount-input">
+                  <button id="applyDiscount" class="apply-discount-btn">Použiť</button>
+                </div>
+                <div id="discountMessage" class="discount-message" style="display: none;"></div>
+                <div id="discountSuggestions" class="discount-suggestions"></div>
+              </div>
+              
+              <div class="summary-line">
+                <span data-lang-key="cart_subtotal">Medzisúčet:</span>
+                <span id="cartSubtotal">0€</span>
+              </div>
+              
+              <div class="summary-line">
+                <span data-lang-key="cart_discount">Zľava:</span>
+                <span id="cartDiscount">0€</span>
+              </div>
+              
+              <div class="summary-line total-line">
+                <span data-lang-key="cart_total">Celkom:</span>
+                <span id="cartPageTotal">0€</span>
+              </div>
+              
+              <div class="cart-actions">
+                <button id="clearCartPage" class="btn btn-secondary full-width" data-lang-key="cart_clear">
+                  Vymazať košík
+                </button>
+                
+                <button id="checkoutBtn" class="btn btn-gradient full-width" data-lang-key="cart_checkout">
+                  Objednať služby
+                </button>
+              </div>
+                <div class="contact-info">
+                <h4 data-lang-key="cart_contact_title">Potrebujete pomoc?</h4>
+                <p data-lang-key="cart_contact_text">Kontaktujte nás</p>
+                <a href="mailto:services@marketing360.sk" class="contact-link">services@marketing360.sk</a>                <!-- Социальные сети -->
+                <div class="social-links cart-social-links">
+                  <a href="https://t.me/Marketing360sk" target="_blank" class="social-link telegram">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 2.1 11.75c-1.21-.35-1.22-.85.26-1.39L21.26 3.94c1.01-.38 1.96.24 1.48 1.65L19.5 18.75c-.26 1.3-.98 1.61-1.99 1.01L13.55 17.4l-1.88 1.81c-.21.21-.39.39-.81.39z"/>
+                    </svg>
+                    <span data-lang-key="social_telegram">Telegram</span>
+                  </a>
+                  <a href="https://www.instagram.com/marketing360sk/" target="_blank" class="social-link instagram">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span data-lang-key="social_instagram">Instagram</span>
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61577606097342" target="_blank" class="social-link facebook">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <span data-lang-key="social_facebook">Facebook</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Модальное окно корзины (для совместимости) -->
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+      <div class="cart-header">
+        <h2 data-lang-key="cart_title">Košík</h2>
+        <button id="closeCartModal" class="close-btn" aria-label="Zavrieť">&times;</button>
+      </div>
+      
+      <div class="cart-body">
+        <div id="cartItems" class="cart-items">
+          <!-- Элементы корзины будут добавлены динамически -->
+        </div>
+        
+        <div id="emptyCartMessage" class="empty-cart-message">
+          <p data-lang-key="cart_empty">Váš košík je prázdny</p>
+        </div>
+        
+        <div class="cart-summary">
+          <div class="cart-total">
+            <span data-lang-key="cart_total">Celkom:</span>
+            <span id="cartTotal">0€</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cart-footer">
+        <button id="clearCart" class="btn-secondary" data-lang-key="cart_clear">Vymazať košík</button>
+        <button id="goToCart" class="btn-primary" data-lang-key="cart_view_full">Prejsť na košík</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p data-lang-key="footer_copyright">© 2025 Archetype Strategy. Všetky práva vyhradené.</p>
+    </div>
+  </footer>
+  <!-- Подключение AOS и скриптов -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  
+  <!-- Подключение конфигурации и скриптов -->
+  <script src="config/telegram-config.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/cart-page.js"></script>
+</body>
+</html>
